@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agx-core"
+version = "0.1.0"
+description = "Bounded execution lanes for agent-driven coding with durable task bundles and local verification."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "KikuAI Lab" }]
+dependencies = ["certifi>=2024.0.0"]
+
+[project.scripts]
+agx-core = "agx_core.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
