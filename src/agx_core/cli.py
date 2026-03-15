@@ -211,7 +211,7 @@ def cmd_doctor(args: argparse.Namespace) -> int:
     if args.json:
         print(json.dumps(report, indent=2))
     else:
-        for key in ("status", "provider", "base_url", "model_count"):
+        for key in ("status", "provider", "base_url", "auth_mode", "model_count"):
             print(f"{key}={report[key]}")
         if report["notes"]:
             print("notes:")
@@ -262,4 +262,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

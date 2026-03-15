@@ -14,6 +14,7 @@ class DoctorReport:
     provider: str
     base_url: str
     api_key_configured: bool
+    auth_mode: str
     model_count: int
     models: list[str]
     model_fetch_error: str | None
@@ -36,6 +37,7 @@ def run_doctor(settings: Settings, *, adapter: ProviderAdapter | None = None) ->
             provider=settings.provider,
             base_url=settings.base_url,
             api_key_configured=False,
+            auth_mode=settings.auth_mode,
             model_count=0,
             models=[],
             model_fetch_error="AGX_API_KEY is not configured.",
@@ -48,6 +50,10 @@ def run_doctor(settings: Settings, *, adapter: ProviderAdapter | None = None) ->
     models, model_fetch_error = effective_adapter.list_models()
     if model_fetch_error:
         notes.append(model_fetch_error)
+    if settings.auth_mode == "local_proxy_dummy":
+        notes.append(
+            "Using local proxy auth mode: no AGX_API_KEY was provided, so agx-core supplied a dummy header for localhost."
+        )
 
     missing_alias_targets = sorted({value for value in aliases.values() if value not in models})
     if missing_alias_targets:
@@ -67,6 +73,7 @@ def run_doctor(settings: Settings, *, adapter: ProviderAdapter | None = None) ->
         provider=settings.provider,
         base_url=settings.base_url,
         api_key_configured=True,
+        auth_mode=settings.auth_mode,
         model_count=len(models),
         models=models,
         model_fetch_error=model_fetch_error,
@@ -74,4 +81,3 @@ def run_doctor(settings: Settings, *, adapter: ProviderAdapter | None = None) ->
         default_fallbacks=fallbacks,
         notes=notes,
     )
-

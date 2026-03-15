@@ -18,6 +18,7 @@ def test_run_doctor_fails_without_api_key() -> None:
             base_url="https://api.anthropic.com",
             api_key="",
             timeout_seconds=10,
+            auth_mode="explicit",
         ),
         adapter=FakeAdapter([], None),
     )
@@ -35,6 +36,7 @@ def test_run_doctor_warns_when_alias_targets_are_missing(monkeypatch) -> None:
             base_url="https://api.anthropic.com",
             api_key="dummy",
             timeout_seconds=10,
+            auth_mode="explicit",
         ),
         adapter=FakeAdapter(["claude-sonnet"]),
     )
@@ -50,6 +52,7 @@ def test_run_doctor_is_healthy_when_models_are_visible() -> None:
             base_url="https://api.openai.com/v1",
             api_key="dummy",
             timeout_seconds=10,
+            auth_mode="explicit",
         ),
         adapter=FakeAdapter(["model-a", "model-b"]),
     )
@@ -57,3 +60,19 @@ def test_run_doctor_is_healthy_when_models_are_visible() -> None:
     assert report.status == "healthy"
     assert report.model_count == 2
 
+
+def test_run_doctor_notes_local_proxy_dummy_mode() -> None:
+    report = run_doctor(
+        Settings(
+            provider="anthropic",
+            base_url="http://127.0.0.1:8787",
+            api_key="dummy",
+            timeout_seconds=10,
+            auth_mode="local_proxy_dummy",
+        ),
+        adapter=FakeAdapter(["claude-sonnet-4-6"]),
+    )
+
+    assert report.status == "healthy"
+    assert report.auth_mode == "local_proxy_dummy"
+    assert any("dummy header for localhost" in note for note in report.notes)

@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import json
 import os
+from urllib.parse import urlparse
 
 
 DEFAULT_BASE_URLS = {
@@ -17,6 +18,7 @@ class Settings:
     base_url: str
     api_key: str
     timeout_seconds: int
+    auth_mode: str = "explicit"
 
 
 def _normalize_provider(value: str | None) -> str:
@@ -26,16 +28,27 @@ def _normalize_provider(value: str | None) -> str:
     return provider
 
 
+def is_localhost_url(url: str) -> bool:
+    host = (urlparse(url).hostname or "").lower()
+    return host in {"127.0.0.1", "localhost"}
+
+
 def load_settings(*, provider_override: str | None = None) -> Settings:
     provider = _normalize_provider(provider_override or os.environ.get("AGX_PROVIDER"))
     base_url = (os.environ.get("AGX_BASE_URL") or DEFAULT_BASE_URLS[provider]).rstrip("/")
     api_key = os.environ.get("AGX_API_KEY", "").strip()
+    auth_mode = "explicit"
+    if not api_key and provider == "anthropic" and is_localhost_url(base_url):
+        # Local Anthropic-compatible proxies often ignore auth but still expect the header shape.
+        api_key = "dummy"
+        auth_mode = "local_proxy_dummy"
     timeout_seconds = int(os.environ.get("AGX_TIMEOUT_SECONDS", "300"))
     return Settings(
         provider=provider,
         base_url=base_url,
         api_key=api_key,
         timeout_seconds=timeout_seconds,
+        auth_mode=auth_mode,
     )
 
 
@@ -43,12 +56,7 @@ def settings_with_provider(settings: Settings, provider: str) -> Settings:
     normalized = _normalize_provider(provider)
     if normalized == settings.provider:
         return settings
-    return Settings(
-        provider=normalized,
-        base_url=DEFAULT_BASE_URLS[normalized],
-        api_key=settings.api_key,
-        timeout_seconds=settings.timeout_seconds,
-    )
+    return load_settings(provider_override=normalized)
 
 
 def current_model_aliases() -> dict[str, str]:
@@ -90,4 +98,3 @@ def fallback_chain(primary: str, requested: list[str] | None = None) -> list[str
         if model not in chain:
             chain.append(model)
     return chain
-

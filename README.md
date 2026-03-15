@@ -53,6 +53,10 @@ Supported provider surfaces:
 - `openai-compatible`
 
 You can point `openai-compatible` at any gateway that speaks a normal chat-completions and models surface.
+You can also point `anthropic` at a local Anthropic-compatible proxy such as Antigravity.
+
+For localhost proxy mode, `agx-core` will supply a dummy auth header automatically when `AGX_API_KEY` is not set.
+If your proxy expects a real key, set `AGX_API_KEY` explicitly.
 
 ## Quick Start
 
@@ -61,7 +65,7 @@ See [QUICKSTART.md](/Users/nick/myprojects/agx-core/QUICKSTART.md).
 Short version:
 
 1. create a virtualenv and install the package
-2. export `AGX_PROVIDER`, `AGX_API_KEY`, and optional `AGX_BASE_URL`
+2. export `AGX_PROVIDER` and either a real API key or a localhost proxy base URL
 3. run `agx-core doctor`
 4. create a tiny repo
 5. run `agx-core submit`
@@ -100,4 +104,3 @@ Durable execution docs for this scaffold live in:
 - [plans.md](/Users/nick/myprojects/agx-core/docs/plans.md)
 - [status.md](/Users/nick/myprojects/agx-core/docs/status.md)
 - [test-plan.md](/Users/nick/myprojects/agx-core/docs/test-plan.md)
-

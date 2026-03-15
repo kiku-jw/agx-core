@@ -20,6 +20,18 @@ export AGX_PROVIDER=anthropic
 export AGX_API_KEY=YOUR_ANTHROPIC_KEY
 ```
 
+### Anthropic-compatible local proxy
+
+If you already run a local Anthropic-compatible proxy such as Antigravity:
+
+```bash
+export AGX_PROVIDER=anthropic
+export AGX_BASE_URL=http://127.0.0.1:8787
+```
+
+`agx-core` will automatically use a dummy auth header for localhost proxy mode when `AGX_API_KEY` is unset.
+If your proxy expects a real key, set `AGX_API_KEY` explicitly.
+
 Optional:
 
 ```bash
@@ -54,6 +66,8 @@ Healthy means:
 - model list can be fetched
 - alias targets are visible or no aliases were configured
 
+In localhost proxy mode, the same check should pass without exporting `AGX_API_KEY`.
+
 ## 4. Create a disposable repo
 
 ```bash
@@ -83,6 +97,7 @@ agx-core submit \
 ```
 
 If you rely on aliases instead of exact model ids, replace `YOUR_MODEL_ID` with the alias you configured.
+For a local Antigravity-style proxy, `claude-sonnet-4-6` is a good first smoke target when that model is advertised.
 
 ## 6. Run, apply, verify
 
@@ -112,4 +127,3 @@ Stop before real work if:
 - [quickstart-patch](/Users/nick/myprojects/agx-core/examples/quickstart-patch/README.md)
 - [live2reels-first-slice](/Users/nick/myprojects/agx-core/examples/live2reels-first-slice/README.md)
 - [agx-orchestrator skill](/Users/nick/myprojects/agx-core/skills/agx-orchestrator/SKILL.md)
-
