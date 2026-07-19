@@ -23,10 +23,10 @@ Date: 2026-03-15
 
 ## Related Assets
 
-- [README.md](/Users/nick/myprojects/agx-core/README.md)
-- [QUICKSTART.md](/Users/nick/myprojects/agx-core/QUICKSTART.md)
-- [SKILL.md](/Users/nick/myprojects/agx-core/skills/agx-orchestrator/SKILL.md)
-- [live2reels-first-slice example](/Users/nick/myprojects/agx-core/examples/live2reels-first-slice/README.md)
+- [README.md](../../README.md)
+- [QUICKSTART.md](../../QUICKSTART.md)
+- [SKILL.md](../../skills/agx-orchestrator/SKILL.md)
+- [live2reels-first-slice example](../../examples/live2reels-first-slice/README.md)
 
 ## Brief
 
@@ -48,4 +48,3 @@ Date: 2026-03-15
   - private infra specifics
   - any claim of adoption or performance that we did not measure
   - pretending this is a full framework or a hosted platform
-

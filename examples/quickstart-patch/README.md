@@ -7,7 +7,7 @@ This is the smallest honest `agx-core` job:
 - one verification command
 - one patch result
 
-Use it after [QUICKSTART.md](/Users/nick/myprojects/agx-core/QUICKSTART.md) proves that provider access is configured.
+Use it after [QUICKSTART.md](../../QUICKSTART.md) proves that provider access is configured.
 
 ## Packet shape
 
@@ -18,4 +18,3 @@ Use it after [QUICKSTART.md](/Users/nick/myprojects/agx-core/QUICKSTART.md) prov
 
 This is the baseline pattern for any public demo.
 If a task cannot be narrowed down to something this explicit, it probably should stay in Codex planning first.
-

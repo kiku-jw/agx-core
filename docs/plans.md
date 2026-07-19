@@ -28,7 +28,7 @@ Definition of done:
 
 Validation:
 
-- `find /Users/nick/myprojects/agx-core -maxdepth 3 | sort | sed -n '1,200p'`
+- `find . -maxdepth 3 | sort | sed -n '1,200p'`
 
 ### M2. Kernel extraction
 
@@ -40,7 +40,7 @@ Definition of done:
 
 Validation:
 
-- `cd /Users/nick/myprojects/agx-core && PYTHONPATH=src python3 -m pytest tests/test_storage.py tests/test_apply.py`
+- `PYTHONPATH=src python3 -m pytest tests/test_storage.py tests/test_apply.py`
 
 ### M3. API-first provider layer
 
@@ -52,7 +52,7 @@ Definition of done:
 
 Validation:
 
-- `cd /Users/nick/myprojects/agx-core && PYTHONPATH=src python3 -m pytest tests/test_runner.py tests/test_doctor.py`
+- `PYTHONPATH=src python3 -m pytest tests/test_runner.py tests/test_doctor.py`
 
 ### M4. Public routing surface
 
@@ -64,7 +64,7 @@ Definition of done:
 
 Validation:
 
-- read [SKILL.md](/Users/nick/myprojects/agx-core/skills/agx-orchestrator/SKILL.md)
+- read [SKILL.md](../skills/agx-orchestrator/SKILL.md)
 
 ## Assumptions
 
@@ -75,4 +75,3 @@ Validation:
 ## Stop-And-Fix Rule
 
 If the repo drifts back toward private runtime assumptions, cut scope instead of carrying the baggage forward.
-

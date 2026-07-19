@@ -5,8 +5,8 @@
 - artifact type: build diary
 - current phase: Complete
 - public-safe gate: passed
-- draft path: /Users/nick/myprojects/agx-core/docs/blog/agx-core-public-spinout-draft.md
-- canonical post path: /Users/nick/myprojects/kikuai-blog/content/blog/2026-03-17-agx-core-public-execution-lane.md
+- draft path: `docs/blog/agx-core-public-spinout-draft.md`
+- canonical post: [2026-03-17-agx-core-public-execution-lane.md](https://github.com/kiku-jw/kikuai-blog/blob/master/content/blog/2026-03-17-agx-core-public-execution-lane.md)
 - review status: final draft packaged, saved to the blog repo, and ready as the canonical public artifact
 
 ## Checklist
@@ -49,7 +49,7 @@
 
 ## Phase 3: Draft
 
-- draft path: /Users/nick/myprojects/agx-core/docs/blog/agx-core-public-spinout-draft.md
+- draft path: `docs/blog/agx-core-public-spinout-draft.md`
 - evidence pack used: public repo commits 933a1da and acabb42, awesome commit 7ec28c8, test run 21 passed, local proxy smoke with apply and verify passed.
 
 ## Phase 4: Critique / Deaify
@@ -65,6 +65,6 @@
 
 ## Phase 6: Publish Prep
 
-- save location: /Users/nick/myprojects/kikuai-blog/content/blog/2026-03-17-agx-core-public-execution-lane.md
+- save location: [2026-03-17-agx-core-public-execution-lane.md](https://github.com/kiku-jw/kikuai-blog/blob/master/content/blog/2026-03-17-agx-core-public-execution-lane.md)
 - review queue: none; the canonical copy is the blog repo article and the evidence pack remains in this repo
 - announcement TODOs: keep AGX listed in the public awesome repo; optional follow-up post about the wider mini-corp lane after direct-vendor smoke and a second example run

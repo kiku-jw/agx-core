@@ -31,8 +31,8 @@
 
 ## Acceptance gates
 
-- `cd /Users/nick/myprojects/agx-core && PYTHONPATH=src python3 -m pytest`
-- `cd /Users/nick/myprojects/agx-core && PYTHONPATH=src python3 -m compileall src`
+- `PYTHONPATH=src python3 -m pytest`
+- `PYTHONPATH=src python3 -m compileall src`
 - one disposable-repo live smoke succeeds against a direct provider
 
 ## Explicitly deferred

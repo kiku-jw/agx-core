@@ -60,7 +60,7 @@ If your proxy expects a real key, set `AGX_API_KEY` explicitly.
 
 ## Quick Start
 
-See [QUICKSTART.md](/Users/nick/myprojects/agx-core/QUICKSTART.md).
+See [QUICKSTART.md](QUICKSTART.md).
 
 Short version:
 
@@ -73,7 +73,7 @@ Short version:
 
 ## Skill
 
-The public Codex skill lives at [skills/agx-orchestrator/SKILL.md](/Users/nick/myprojects/agx-core/skills/agx-orchestrator/SKILL.md).
+The public Codex skill lives at [skills/agx-orchestrator/SKILL.md](skills/agx-orchestrator/SKILL.md).
 
 It teaches one routing rule:
 
@@ -82,8 +82,8 @@ It teaches one routing rule:
 
 ## Examples
 
-- [quickstart-patch](/Users/nick/myprojects/agx-core/examples/quickstart-patch/README.md)
-- [live2reels-first-slice](/Users/nick/myprojects/agx-core/examples/live2reels-first-slice/README.md)
+- [quickstart-patch](examples/quickstart-patch/README.md)
+- [live2reels-first-slice](examples/live2reels-first-slice/README.md)
 
 ## Origin
 
@@ -101,6 +101,6 @@ What `agx-core` adds on top is the local dispatcher kernel itself:
 
 Durable execution docs for this scaffold live in:
 
-- [plans.md](/Users/nick/myprojects/agx-core/docs/plans.md)
-- [status.md](/Users/nick/myprojects/agx-core/docs/status.md)
-- [test-plan.md](/Users/nick/myprojects/agx-core/docs/test-plan.md)
+- [plans.md](docs/plans.md)
+- [status.md](docs/status.md)
+- [test-plan.md](docs/test-plan.md)

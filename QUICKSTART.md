@@ -5,7 +5,9 @@ This is the shortest honest path to a first `agx-core` run.
 ## 1. Install
 
 ```bash
-cd /Users/nick/myprojects/agx-core
+git clone https://github.com/kiku-jw/agx-core.git
+cd agx-core
+agx_core_dir="$(pwd)"
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e .
@@ -82,7 +84,7 @@ git -c user.name='AGX' -c user.email='agx@example.com' commit -q -m init
 ## 5. Submit a bounded task
 
 ```bash
-cd /Users/nick/myprojects/agx-core
+cd "$agx_core_dir"
 agx-core submit \
   --cwd "$tmpdir" \
   --title "Quickstart patch" \
@@ -124,6 +126,6 @@ Stop before real work if:
 
 ## Next
 
-- [quickstart-patch](/Users/nick/myprojects/agx-core/examples/quickstart-patch/README.md)
-- [live2reels-first-slice](/Users/nick/myprojects/agx-core/examples/live2reels-first-slice/README.md)
-- [agx-orchestrator skill](/Users/nick/myprojects/agx-core/skills/agx-orchestrator/SKILL.md)
+- [quickstart-patch](examples/quickstart-patch/README.md)
+- [live2reels-first-slice](examples/live2reels-first-slice/README.md)
+- [agx-orchestrator skill](skills/agx-orchestrator/SKILL.md)

@@ -18,7 +18,7 @@ Keep planning, acceptance, and final judgment in Codex while routing one narrow 
 
 - Keep the task in Codex if the real blocker is planning, architecture, contracts, or acceptance.
 - Dispatch only when the blocked layer is execution and the end artifact is concrete.
-- Read `/Users/nick/myprojects/agx-core/skills/agx-orchestrator/references/layered-routing.md` if the routing boundary is fuzzy.
+- Read `references/layered-routing.md` from this skill directory if the routing boundary is fuzzy.
 
 ### 2. Build one bounded packet
 
@@ -51,4 +51,3 @@ Keep planning, acceptance, and final judgment in Codex while routing one narrow 
 - `model`: exact model id, alias, or `n/a`
 - `validation`: local checks that will prove success
 - `review_lane`: codex | adversarial_review | n/a
-
